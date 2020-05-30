@@ -20,6 +20,7 @@ public class Window extends Canvas {
         frame.setLocationRelativeTo(null);
         frame.add(game);
         frame.setVisible(true);
+        game.start();
     }
 
 
