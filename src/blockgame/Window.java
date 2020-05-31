@@ -1,3 +1,4 @@
+package blockgame;
 import java.awt.Canvas;
 import java.awt.Dimension;
 

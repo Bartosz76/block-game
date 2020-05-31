@@ -1,17 +1,41 @@
+package blockgame;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import blockgame.Game.STATE;
+
 public class Menu extends MouseAdapter{
 	
-	public void mousePressed(MouseEvent r) {
+	Game game;
+	
+	public Menu(Game game) {
+		this.game = game;
+	}
+	
+	public void mousePressed(MouseEvent e) {
+		int mx = e.getX();
+		int my = e.getY();
+		
+		if(mouseOver(mx, my, 210, 150, 200, 64)) {
+			game.gameState = STATE.Game;
+			
+		}
 		
 	}
 	
-	public void mouseReleased(MouseEvent r) {
+	public void mouseReleased(MouseEvent e) {
 		
+	}
+	
+	private boolean mouseOver(int mx, int my, int x, int y, int width, int height) {
+		if(mx > x && mx < x + width) {
+			if(my  > y && my < y + height) {
+				return true;
+			}else return false;
+		}else return false;
 	}
 	
 	public void tick() {

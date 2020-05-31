@@ -1,3 +1,4 @@
+package blockgame;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 

@@ -1,3 +1,4 @@
+package blockgame;
 import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -36,7 +37,7 @@ public class Game extends Canvas implements Runnable {
         
         hud = new HUD();
         spawner = new Spawn(handler, hud);
-        menu = new Menu();
+        menu = new Menu(this);
         r = new Random();
         
         if(gameState == STATE.Game) {

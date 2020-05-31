@@ -1,3 +1,4 @@
+package blockgame;
 import java.util.Random;
 
 public class Spawn {

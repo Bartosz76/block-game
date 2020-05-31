@@ -1,3 +1,4 @@
+package blockgame;
 
 public enum ID {
 	
