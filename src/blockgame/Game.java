@@ -22,6 +22,7 @@ public class Game extends Canvas implements Runnable {
     
     public enum STATE {
     	Menu,
+    	Help,
     	Game,
     };
     
@@ -30,14 +31,16 @@ public class Game extends Canvas implements Runnable {
     public Game(){
     	
     	handler = new Handler();
+    	menu = new Menu(this, handler);
     	this.addKeyListener(new KeyInput(handler));
+    	this.addMouseListener(menu);
+    	
     	
     	
         new Window(WIDTH, HEIGHT, "Building a game.", this);
         
         hud = new HUD();
         spawner = new Spawn(handler, hud);
-        menu = new Menu(this);
         r = new Random();
         
         if(gameState == STATE.Game) {
@@ -119,7 +122,7 @@ public class Game extends Canvas implements Runnable {
   
   if(gameState == STATE.Game) {
 	  hud.render(g);
-  }else if(gameState == STATE.Menu){
+  }else if(gameState == STATE.Menu || gameState == STATE.Help){
 	  menu.render(g);
   }
   
