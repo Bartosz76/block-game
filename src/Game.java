@@ -18,6 +18,7 @@ public class Game extends Canvas implements Runnable {
     private HUD hud;
 
     public Game(){
+    	
     	handler = new Handler();
     	this.addKeyListener(new KeyInput(handler));
     	
@@ -28,10 +29,8 @@ public class Game extends Canvas implements Runnable {
         
         r = new Random();
         
-        
-        	handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player));
-        	for(int i = 0; i < 10; i++)
-        	handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy));
+        handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler));
+        handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy));
         	
         
         
