@@ -53,6 +53,18 @@ public class Menu extends MouseAdapter{
 						return;
 					}
 				}
+				
+				// Try Again button (from Help)
+				if(game.gameState == STATE.End) {
+					if(mouseOver(mx, my, 210, 350, 200, 64)) {
+						game.gameState = STATE.Game;
+						hud.setLevel(1);
+						hud.setScore(0);
+						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler));
+						handler.clearEnemies();
+			            handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));	
+					}
+				}
 		
 	}
 	
@@ -113,15 +125,15 @@ public class Menu extends MouseAdapter{
 			
 			g.setFont(fnt);
 			g.setColor(Color.DARK_GRAY);
-			g.drawString("Game Over", 240, 70);
+			g.drawString("Game Over", 180, 70);
 			
 			g.setFont(fnt3);
-			g.drawString("You lost, lol.", 20, 150);
-			g.drawString("Your score was: " + hud.getScore(), 30, 200);
+			g.drawString("You lost :O", 245, 150);
+			g.drawString("Your score was: " + hud.getScore(), 220, 200);
 			
 			g.setFont(fnt2);
 			g.drawRect(210, 350, 200, 64);
-			g.drawString("Try Again", 275, 390);
+			g.drawString("Try Again", 245, 390);
 		}
 		
 		

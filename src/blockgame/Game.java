@@ -27,7 +27,7 @@ public class Game extends Canvas implements Runnable {
     	End
     };
     
-    public STATE gameState = STATE.Menu;
+    public static STATE gameState = STATE.Menu;
 
     public Game(){
     	
@@ -106,8 +106,12 @@ public class Game extends Canvas implements Runnable {
 		  
 		  if(HUD.HEALTH <= 0) {
 			  HUD.HEALTH = 100;
-			  handler.clearEnemies();
 			  gameState = STATE.End;
+			  handler.clearEnemies();
+			  for(int i = 0; i < 10; i++) {
+	        		handler.addObject(new MenuParticle(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuParticle, handler));
+	        	}
+			  
 		  }
 	  }else if(gameState == STATE.Menu || gameState == STATE.End){
 		  menu.tick();
